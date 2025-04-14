@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebGL Drawing App</title>
+  <style>
+    canvas { border: 1px solid black; }
+    .controls { margin-top: 10px; }
+    .slider-group, .button-group { margin-bottom: 10px; }
+    label { margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <h2>WebGL Drawing App</h2>
+
+  <canvas id="webgl" width="500" height="500"></canvas>
+
+  <div class="controls">
+    <div class="slider-group">
+      <label>Red: <input type="range" id="red" min="0" max="100" value="100"></label>
+      <label>Green: <input type="range" id="green" min="0" max="100" value="0"></label>
+      <label>Blue: <input type="range" id="blue" min="0" max="100" value="0"></label>
+    </div>
+    <div class="slider-group">
+      <label>Size: <input type="range" id="size" min="1" max="20" value="10"></label>
+      <label>Circle Segments: <input type="range" id="segments" min="3" max="50" value="20"></label>
+      <label>Transparency: <input type="range" id="alpha" min="0" max="100" value="100"></label>
+
+    </div>
+    <div class="button-group">
+      <button id="pointButton">Point</button>
+      <button id="triangleButton">Triangle</button>
+      <button id="circleButton">Circle</button>
+      <button id="clearButton">Clear Canvas</button>
+      <button id="pictureButton">Draw Picture</button>
+
+    </div>
+  </div>
+  <h3>My Reference Image</h3>
+  <div class="image-section">
+    <img id="referenceImage" src="lib/IMG_9408.jpg" alt="Reference" width="300">
+  </div>
+
+  <script src="lib/cuon-utils.js"></script>
+  <script src="asg1.js"></script>
+  <script>window.onload = main;</script>
+</body>
+</html>
