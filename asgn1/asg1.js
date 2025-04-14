@@ -16,9 +16,13 @@ class Point {
   render() {
     gl.uniform4f(u_FragColor, ...this.color);
     gl.uniform1f(u_Size, this.size);
+  
+    gl.disableVertexAttribArray(a_Position);
     gl.vertexAttrib3f(a_Position, this.position[0], this.position[1], 0.0);
+  
     gl.drawArrays(gl.POINTS, 0, 1);
   }
+  
 }
 
 class Triangle {
@@ -115,7 +119,7 @@ function click(ev) {
     ? new Triangle([x, y], g_selectedColor, g_selectedSize)
     : new Circle([x, y], g_selectedColor, g_selectedSize, g_selectedSegments);
 
-  g_shapesList.push(shape);
+  //g_shapesList.push(shape);
   g_shapesList.push(shape);
   shape.render(); // only draw the new shape
   }
