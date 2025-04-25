@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3D Blocky Animal</title>
+  <script src="lib/cuon-matrix-cse160.js"></script>
+  <script src="lib/cuon-utils.js"></script>    
+  <script src="https://mrdoob.github.io/stats.js/build/stats.min.js"></script>
+  <script src="animal.js" defer></script>   
+  <style>
+    body { font-family: sans-serif; text-align: center; }
+    #controls { margin-top: 10px; }
+    label { margin-right: 1em; }
+    canvas { border: 1px solid #999; cursor: grab; }
+  </style>
+</head>
+<body>
+  <h1>3D Blocky Animal</h1>
+  <canvas id="webgl" width="600" height="600"></canvas>
+
+  <div id="controls">
+    <label>Rotate Y:
+      <input id="slider-global" type="range" min="0"   max="360" value="30">
+    </label>
+    <label>Rotate X:
+      <input id="slider-viewX" type="range"  min="-90" max="90"  value="10">
+    </label>
+    <br><br>
+
+    <label>Hip:
+      <input id="slider-jointA" type="range" min="-45" max="45" value="0">
+    </label>
+    <label>Knee:
+      <input id="slider-jointB" type="range" min="-45" max="45" value="0">
+    </label>
+    <label>Foot:
+      <input id="slider-jointC" type="range" min="-30" max="30" value="0">
+    </label>
+    <br><br>
+    <label>Head Z:
+      <input id="slider-head" type="range" min="0" max="2" step="0.01" value="0">
+    </label>
+    <br><br>
+
+    <button id="btn-animate">Toggle Walk</button>
+    <p>Hold <code>Shift</code> + click on canvas to “poke”</p>
+  </div>
+</body>
+</html>
