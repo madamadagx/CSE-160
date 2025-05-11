@@ -4,10 +4,10 @@ import { Matrix4 } from './cuon-matrix.js';
 
 export function buildWorld(gl, textures) {
   const cubes = [];
-  const [tex0, tex1, tex2] = textures;   // adjust as needed
+  const [tex0, tex1, tex2] = textures;   
   const MAP_SIZE     = 32;
-  const MAX_HEIGHT   = 5;    // heights 0..4
-  const WALL_DENSITY = 0.5;  // 50% of non‑zero columns
+  const MAX_HEIGHT   = 5;    
+  const WALL_DENSITY = 0.5;  
 
   // Ground (flat green)
   const ground = new Cube(gl, 0, 0.0, [0.2, 0.8, 0.2, 1.0]);
@@ -21,7 +21,6 @@ export function buildWorld(gl, textures) {
   sky.modelMatrix.scale(1000, 1000, 1000);
   cubes.push(sky);
 
-  // Walls: generate h & t per cell, then apply density filter
   for (let x = 0; x < MAP_SIZE; x++) {
     for (let z = 0; z < MAP_SIZE; z++) {
       const h = Math.floor(Math.random() * MAX_HEIGHT);

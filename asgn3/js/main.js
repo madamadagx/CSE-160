@@ -6,11 +6,10 @@ import { buildWorld } from './world.js';
 
 let gl, shader, camera, scene;
 
-// list your image files (up to 3 shown here; add more as needed)
 const texFiles = [
-  'textures/bark.png',   // will go into TEXTURE0
-  'textures/brickov.png',// TEXTURE1
-  'textures/ice.png',    // TEXTURE2
+  'textures/bark.png',   
+  'textures/brickov.png',
+  'textures/ice.png',    
 ];
 
 window.onload = async () => {
@@ -24,22 +23,16 @@ window.onload = async () => {
     return;
   }
 
-  // 1) compile & link your shaders
   shader = await initShaders(gl);
 
-  // 2) load each image into its own texture unit
-  //    loadTexture() returns the WebGLTexture, but more importantly
-  //    it kicks off the async image‑load.
+
   const textures = texFiles.map((url, unit) =>
     loadTexture(gl, url, unit)
   );
 
-  // 3) set up camera & scene
   camera = new Camera(canvas);
-  // pass the array of WebGLTexture objects into your world builder
   scene = buildWorld(gl, textures);
 
-  // 4) input handlers
   document.addEventListener('keydown', onKey);
   canvas.addEventListener('mousemove', onMouse);
 
@@ -87,7 +80,6 @@ function render() {
     camera.projMatrix.elements
   );
 
-  // draw all cubes in the scene
   for (const obj of scene) {
     obj.draw(shader);
   }
